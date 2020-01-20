@@ -273,3 +273,14 @@ var c = a + b
 <span class="text">let</span> and <span class="text"> const </span> are two relatively new types of variable declarations in JavaScript.
 
 <span style="color:##d3077d">let</span> is similar
+
+
+### <span class="title-3 sz-300">Watch for changes</span>
+add following in <span class="text">package.json</span> file
+```json
+"build": "tsc --watch"
+```
+then run following command
+```shell
+$ npm run build
+```
