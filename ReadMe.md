@@ -1,18 +1,35 @@
 <style>
+body{ color: #474647;}
+.text {color:#d3077d; }
+.all {color:#d3077d; }
+.box { display:in-line; width:auto; height:20px;
+	background:#eee; border: 1px solid #b0aeb0;padding:15px;
+	color: #d3077d; }
+.out-box { display:block; width:auto; height:auto;
+			border: 1px solid #eee; margin:2px;
+			padding-left:20px; padding-top:20px; padding-bottom:20px;}
 
-.text {color:#d3077d; font-weight:500; font-style:italic }
-.bold {font-weight: 500}
+.gray {color:#474647; font-weight: 300;font-style: italic; }
+
 .italic {font-style: italic;}
 .title-1{color:#83044d}
 .title-2{color:#a21767}
 .title-3{color:#ae05a4}
 .title-4{color: #d51fbc}
 .title-5{color:#8d0654}
+.sz-200 {font-weight: 200; font-family: 'Nunito Sans', sans-serif;}
+.sz-300 {font-weight: 300; font-family: 'Nunito Sans', sans-serif;}
+.sz-400 {font-weight: 400; font-family: 'Nunito Sans', sans-serif;}
+.sz-500 {font-weight: 500; font-family: 'Nunito Sans', sans-serif;}
+.sz-600 {font-weight: 600; font-family: 'Nunito Sans', sans-serif;}
+.sz-700 {font-weight: 700; font-family: 'Nunito Sans', sans-serif;}
+.sz-800 {font-weight: 800; font-family: 'Nunito Sans', sans-serif;}
+.sz-900 {font-weight: 900; font-family: 'Nunito Sans', sans-serif;}
 </style>
 
-# <span class="title-1">Learning TypeScript</span>
+# <span class="title-1 sz-400">Learning TypeScript</span>
 
-## <span class="title-2">Get your enviornment ready</span>
+## <span class="title-2 sz-300">Get your enviornment ready</span>
 For compiling and running typescript you need few things.
 <ul>
 <li>nodejs</li>
@@ -20,46 +37,46 @@ For compiling and running typescript you need few things.
 <li>npm (node package manger) or npx</li>
 </ul>
 
-### <span class="title-3">Installing node</span>
+### <span class="title-3 sz-200">Installing node</span>
 First download and install node if not installed already. [Download Nodejs](https://nodejs.org/en/)
 Choose appropriate download according to your operating system.
 (it will install npm as well)
-#### <span class="title-4">check node and npm version</span>
+#### <span class="title-4 sz-200">check node and npm version</span>
 ```shell
 $ node --version
 $ npm --version
 ```
 
-### <span class="title-3">Installing git</span>
+### <span class="title-3 sz-300">Installing git</span>
 macOSX has git installed by default so no need to install.
 If you running windows then install <span class="text">git</span> from following location or by clicking [Git	](https://git-scm.com) abd follow instructions.
 
-### <span class="title-3">Install a Programmer's Editor</span>
+### <span class="title-3 sz-300">Install a Programmer's Editor</span>
 You can use notepad++ if you are using windows but best option is to install [vscode](https://code.visualstudio.com). Its corss platform and best editor for so many language and with hundreds of plugins available out of box.
 
-### <span class="title-3">Installing TypeScript</span>
+### <span class="title-3 sz-300">Installing TypeScript</span>
 You can install Typescript globally or locally depends on your requirments. Globally installed TypeScript ca access form any where while locally installed TypeScript can access only from wit in directory it is installed.
 
-#### <span class="title-4">Install globally </span>
+#### <span class="title-4 sz-200">Install globally </span>
 ```shell
 $ npm install -g typescript
 // osx or linux base systems
 $ sudo npm install -g typescript
 ```
-#### <span class="title-4">Install locally</span>
+#### <span class="title-4 sz-200">Install locally</span>
 ```shell
 $ npm install typescript -D
 // or
 $ nom install typescript --save-dev
 ```
-### <span class="title-3">Compiling code </span>
+### <span class="title-3 sz-300">Compiling code </span>
 The <span class="text bold italic">tsc</span> compilsaation command comes with typescript, which can be use to compile code.
 ```shell
 $ tsc my-code.ts
 ```
 If you need to compile mulitple files the you need a  configuration file <span class="text">tsconfig.json</span>
 
-### <span class="title-3">Creating TypeScript project</spanspan>
+### <span class="title-3 sz-300">Creating TypeScript project</spanspan>
 After installing nodejs and typescript globally.
 
 create project directory .eg [todos](link of git)
@@ -105,17 +122,36 @@ Now you ready to write Typescript.
 
 <span class="text">[Note]: Dont modify files inside dist directory these will overriden when ever you run tsc command always modify ts files</span>
 
-## <span class="title-2">TypeScript Basics</spanspan>
 
+### <span class="title-3 sz-300">Type Annotations</spanspan>
 
-### <span class="title-3">Type Annotations</spanspan>
-
-|type   | variable|      |      |   |       |    Description                      |
+|<span class="all">Type</span>  | <span class="all">Variable</span>|      |      |   |       |    <span class="all">Description </span>                     |
 |-------|------------|---|------|---|-------|-------------------------------------|
 | const | identifier | = | value|   |       | 	// infered						  |
 | const | identifier | : | type |	|		|    // explicite					  |
 | const | identifier | : | type | = | value | 	// explicite with default value	  |
 
+
+<div class="out-box">
+ <span class="box"> const</span> 
+ <span class="box gray">identifier</span> 
+ <span class="box">=</span> 
+ <span class="box gray">value</span>
+ </div>
+ <div class="out-box">
+ <span class="box"> const</span> 
+ <span class="box gray">identifier</span> 
+ <span class="box">:</span> 
+ <span class="box gray">type</span>
+ </div>
+ <div class="out-box">
+ <span class="box"> const</span> 
+ <span class="box gray">identifier</span> 
+ <span class="box">:</span> 
+ <span class="box gray">type</span>
+ <span class="box">=</span>
+ <span class="box gray">value</span>
+ </div>
 
 ``` js
 //Boolean
@@ -208,7 +244,7 @@ create(false) // Error
 create(undefined) // Error
 ```
 
-### <span class="title-3">Type assertions </span>
+### <span class="title-3 sz-300">Type assertions </span>
 Sometimes you’ll end up in a situation where you’ll know more about a value than TypeScript does. Usually this will happen when you know the type of some entity could be more specific than its current type.
 
 Type assertions are a way to tell the compiler <span class="text"> trust me, I know what I’m doing.</span> A type assertion is like a type cast in other languages, but performs no special checking or restructuring of data. It has no runtime impact, and is used purely by the compiler. TypeScript assumes that you, the programmer, have performed any special checks that you need.
@@ -225,7 +261,7 @@ let strLength: number (someValue as string).length
 ```
 The two samples are equivalent. Using one over the other is mostly a choice of preference; however, when using TypeScript with <span class="text">JSX<span class="text">, only <span class="text">as-style<span class="text"> assertions are allowed
 
-### <span class="title-3">Variable declaration</span>
+### <span class="title-3 sz-300">Variable declaration</span>
 
 simplest form of creating vasriable in javascript is using word <span class="text">var<span class="text">
 ```js
