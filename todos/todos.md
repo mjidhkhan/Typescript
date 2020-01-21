@@ -178,9 +178,13 @@ this is json response and pretified using [Json Formater & validator](https://js
 ],
    "nextId":1
 }
+```
 
 Adam's Todo List
+```json
 {"complete":false,"id":5,"task":"Buy Flowers1"}
+```
+```shell
 5	 Buy Flowers1
 ```
 
