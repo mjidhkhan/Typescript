@@ -17,6 +17,8 @@ console.log( `${collection.userName}'s Todo List`)
 let newId = collection.addTodo("Buy Flowers1")
 let todoitem = collection.getTodoById(newId)
 console.log(JSON.stringify(todoitem)) 
+todoitem.printDetaile()
+
 
 
 	//var todo = new TodoItem(1, 'Learn Typescript ', false)
