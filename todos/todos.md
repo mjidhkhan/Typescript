@@ -63,7 +63,125 @@ you will see following result in shell or console
 ```
 
 
+Create another class <span class="text italic sz-300">TodoCollection.ts</span> inside <span class="text">src </span> directory 
+
+```js
+import {TodoItem} from './TodoItem'
+
+export class TodoCollection {
+	private nextId: number = 1;
+
+	constructor(public userName: string, public todoItems: TodoItem[] = []){
+		// no statment required
+	}
+
+	addTodo(task: string): number {
+		while(this.getTodoById(this.nextId)){
+			this.nextId++;
+		}
+		this.todoItems.push(new TodoItem(this.nextId, task))
+		return this.nextId
+	}
+
+	getTodoById(id:number): TodoItem {
+		return this.todoItems.find(item=> item.id === id)
+	}
+	markCompleted(id: number, complete: boolean) {
+		const todoItem = this.getTodoById(id)
+		if(todoItem){
+			todoItem.complete = complete
+		}
+	}
+}
+```
+
+Update  <span class="text italic sz-300">index.ts</span> inside <span class="text">src </span> directory.
+```js
+import {TodoItem} from './TodoItem'
+import {TodoCollection} from './TodoCollection'
 
 
+let todos= [
+	new TodoItem(1, "Buy Flowers1"),new TodoItem(1, "purchase showes1"),
+	new TodoItem(2, "Buy Flowers2"),new TodoItem(1, "purchase showes2"),
+	new TodoItem(3, "Buy Flowers3"),new TodoItem(1, "purchase showes3"),
+	new TodoItem(4, "Buy Flowers4"),new TodoItem(1, "purchase showes4"),
+]
+
+let collection = new TodoCollection("Adam", todos)
+console.log(JSON.stringify(collection)) 
+console.clear()
+console.log( `${collection.userName}'s Todo List`)
+
+let newId = collection.addTodo("Buy Flowers1")
+let todoitem = collection.getTodoById(newId)
+console.log(JSON.stringify(todoitem)) 
+todoitem.printDetaile()
+```
+
+you will see output like this
+
+this is json response and pretified using [Json Formater & validator](https://jsonformatter.curiousconcept.com/)
+```json
+{
+   "userName":"Adam",
+   "todoItems":[
+      {
+         "complete":false,
+         "id":1,
+         "task":"Buy Flowers1"
+      
+},
+      {
+         "complete":false,
+         "id":1,
+         "task":"purchase showes1"
+      
+},
+      {
+         "complete":false,
+         "id":2,
+         "task":"Buy Flowers2"
+      
+},
+      {
+         "complete":false,
+         "id":1,
+         "task":"purchase showes2"
+      
+},
+      {
+         "complete":false,
+         "id":3,
+         "task":"Buy Flowers3"
+      
+},
+      {
+         "complete":false,
+         "id":1,
+         "task":"purchase showes3"
+      
+},
+      {
+         "complete":false,
+         "id":4,
+         "task":"Buy Flowers4"
+      
+},
+      {
+         "complete":false,
+         "id":1,
+         "task":"purchase showes4"
+      
+}
+   
+],
+   "nextId":1
+}
+
+Adam's Todo List
+{"complete":false,"id":5,"task":"Buy Flowers1"}
+5	 Buy Flowers1
+```
 
 ### <span class="title-3 b-300">Project Structure </span>
