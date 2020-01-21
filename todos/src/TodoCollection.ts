@@ -16,7 +16,7 @@ export class TodoCollection {
 	}
 
 	getTodoById(id:number): TodoItem {
-		return this.todoItems.find(item=> item.id === id)
+		return (this.todoItems as any).find((item: { id: number; }) => item.id === id)
 	}
 	markCompleted(id: number, complete: boolean) {
 		const todoItem = this.getTodoById(id)
