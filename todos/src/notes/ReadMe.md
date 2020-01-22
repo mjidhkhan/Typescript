@@ -2,8 +2,10 @@
 <link href="../../../style.css" rel="stylesheet"></link> 
 
 # <span class="title-1 st-400">Learning TypeScript</span>
+## <span class="title-3 st-700">Chapter- setup</span>
 
-## <span class="title-2 st-300">Get your enviornment ready</span>
+
+### <span class="title-2 st-300">Get your enviornment ready</span>
 For compiling and running typescript you need few things.
 <ul>
 <li>nodejs</li>
@@ -152,9 +154,9 @@ $ npm install -g tsun
 $ tsun
 
 ```
-## <span class="title-3 st-700">Section-1</span>
-### <span class="title-3 st-500">Section 1.1: TypeScript Core Types</span>
-#### <span class="title-3 st-500"> 	1-	String Literal Types</span>
+## <span class="title-3 st-700">Chapter-2: TypeScript Core Types</span>
+
+### <span class="title-3 st-500">2.1:	String Literal Types</span>
 String Literal types allow you to specify the exact value a string can have.
 ```ts
 
@@ -292,5 +294,43 @@ palyWithPet(cPet)
 
 
 ```
+
+### <span class="title-3 st-500"> 	2.2:	Tuple </span>
+### <span class="title-3 st-500"> 	2.3:	Boolean </span>
+### <span class="title-3 st-500"> 	2.4:	Intersection Type </span>
+### <span class="title-3 st-500"> 	2.5:	Types in function arguments and return value. Number </span>
+### <span class="title-3 st-500"> 	2.6:	Types in function arguments and return value. String </span>
+### <span class="title-3 st-500"> 	2.7:	 const Enum</span>
+### <span class="title-3 st-500"> 	2.7:	 Number</span>
+### <span class="title-3 st-500"> 	2.8:	 String</span>
+### <span class="title-3 st-500"> 	2.9:	 Array</span>
+### <span class="title-3 st-500"> 	2.10:	 </span>
+### <span class="title-3 st-500"> 	2.11:	 Enum</span>
+### <span class="title-3 st-500"> 	2.12:	 Any</span>
+### <span class="title-3 st-500"> 	2.13:	 Void</span>
+
+## <span class="title-3 st-700">Chapter 3: Arrays</span>
+### <span class="title-3 st-500"> 	3.1:	Finding Object in Array</span>
+
+## <span class="title-3 st-700">Chapter 4: Arrays</span>
+### <span class="title-3 st-500"> 	3.1:	Finding Object in Array</span>
+
+
+## <span class="title-3 st-700">Chapter 5: Enums</span>
+### <span class="title-3 st-500">5.1: Enum with explicite values</span>
+### <span class="title-3 st-500">5.2: How to get all enum values</span>
+
+
+## <span class="title-3 st-700">Chapter 6: Arrays</span>
+### <span class="title-3 st-500"> 	3.1:	Finding Object in Array</span>
+
+
+## <span class="title-3 st-700">Chapter 7: Arrays</span>
+### <span class="title-3 st-500"> 	3.1:	Finding Object in Array</span>
+
+
+## <span class="title-3 st-700">Chapter 8: Arrays</span>
+### <span class="title-3 st-500"> 	3.1:	Finding Object in Array</span>
+
 
 
