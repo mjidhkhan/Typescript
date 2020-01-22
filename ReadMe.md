@@ -1,7 +1,6 @@
-<style>
 
-</style>
 <link href="style.css" rel="stylesheet"></link> 
+
 # <span class="title-1 sz-400">Learning TypeScript</span>
 
 ## <span class="title-2 sz-300">Get your enviornment ready</span>
