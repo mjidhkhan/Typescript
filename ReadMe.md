@@ -1,9 +1,9 @@
 
 <link href="./style.css" rel="stylesheet"></link> 
 
-# <span class="title-1 sz-400">Learning TypeScript</span>
+# <span class="title-1 st-400">Learning TypeScript</span>
 
-## <span class="title-2 sz-300">Get your enviornment ready</span>
+## <span class="title-2 st-300">Get your enviornment ready</span>
 For compiling and running typescript you need few things.
 <ul>
 <li>nodejs</li>
@@ -11,45 +11,45 @@ For compiling and running typescript you need few things.
 <li>npm (node package manger) or npx</li>
 </ul>
 
-### <span class="title-3 sz-200">Installing node</span>
+### <span class="title-3 st-200">Installing node</span>
 First download and install node if not installed already. 
 [Download Nodejs](https://nodejs.org/en/)
 Choose appropriate download according to your operating system.
 (it will install npm as well)
-#### <span class="title-4 sz-200">check node and npm version</span>
+#### <span class="title-4 st-200">check node and npm version</span>
 ```shell
 $ node --version
 $ npm --version
 ```
 
-### <span class="title-3 sz-300">Installing git</span>
+### <span class="title-3 st-300">Installing git</span>
 macOSX has git installed by default so no need to install.
 If you running windows then install <span class="text">git</span> 
 from following location or by clicking [Git	](https://git-scm.com) and follow instructions.
 
-### <span class="title-3 sz-300">Install a Programmer's Editor</span>
+### <span class="title-3 st-300">Install a Programmer's Editor</span>
 You can use notepad++ if you are using windows but best option is to 
 install [vscode](https://code.visualstudio.com). Its corss platform and 
 best editor for so many language and with hundreds of plugins available out of box.
 
-### <span class="title-3 sz-300">Installing TypeScript</span>
+### <span class="title-3 st-300">Installing TypeScript</span>
 You can install Typescript globally or locally depends on your requirments. 
 Globally installed TypeScript ca access form any where while locally installed 
 TypeScript can access only from wit in directory it is installed.
 
-#### <span class="title-4 sz-200">Install globally </span>
+#### <span class="title-4 st-200">Install globally </span>
 ```shell
 $ npm install -g typescript
 // osx or linux base systems
 $ sudo npm install -g typescript
 ```
-#### <span class="title-4 sz-200">Install locally</span>
+#### <span class="title-4 st-200">Install locally</span>
 ```shell
 $ npm install typescript -D
 // or
 $ nom install typescript --save-dev
 ```
-### <span class="title-3 sz-300">Compiling code </span>
+### <span class="title-3 st-300">Compiling code </span>
 The <span class="text bold italic">tsc</span> compilsaation command comes 
 with typescript, which can be use to compile code.
 ```shell
@@ -58,7 +58,7 @@ $ tsc my-code.ts
 If you need to compile mulitple files the you need a  configuration file 
 <span class="text">tsconfig.json</span>
 
-### <span class="title-3 sz-300">Creating TypeScript project</spanspan>
+### <span class="title-3 st-300">Creating TypeScript project</spanspan>
 After installing nodejs and typescript globally.
 
 create project directory .eg [todos](link of git)
@@ -109,7 +109,7 @@ Now you ready to write Typescript.
 will overriden when ever you run tsc command always modify ts files</span>
 
 
-### <span class="title-3 sz-300">Type Annotations</spanspan>
+### <span class="title-3 st-300">Type Annotations</spanspan>
 
 |<span class="all">Type</span>  | <span class="all">Variable</span>|      |      |   |       |    <span class="all">Description </span>                     |
 |-------|------------|---|------|---|-------|-------------------------------------|
@@ -282,7 +282,7 @@ create(false) // Error
 create(undefined) // Error
 ```
 
-### <span class="title-3 sz-300">Type assertions </span>
+### <span class="title-3 st-300">Type assertions </span>
 Sometimes you’ll end up in a situation where you’ll know more about a 
 value than TypeScript does. Usually this will happen when you know the 
 type of some entity could be more specific than its current type.
@@ -307,7 +307,7 @@ The two samples are equivalent. Using one over the other is mostly a choice of p
 however, when using TypeScript with <span class="text">JSX<span class="text">, 
 only <span class="text">as-style<span class="text"> assertions are allowed
 
-### <span class="title-3 sz-300">Variable declaration</span>
+### <span class="title-3 st-300">Variable declaration</span>
 
 simplest form of creating vasriable in javascript is using word <span class="text">var<span class="text">
 ```js
@@ -321,13 +321,13 @@ new types of variable declarations in JavaScript.
 
 <span style="color:##d3077d">let</span> is similar
 
-### <span class="title-3 sz-300">Object & Dynamic Types</span>
+### <span class="title-3 st-300">Object & Dynamic Types</span>
 Everything that is not primitive type in <span class="text italic">TypeScript</span> 
 is a <span class="text italic"> subclass </span> of the <span class="text italic"> object  </span>type.
 Dynamic types can be represent any type. When using dynamic types there is not 
 compiler type checking for the type.
 
-### <span class="title-3 sz-300">Enumerations</span>
+### <span class="title-3 st-300">Enumerations</span>
 Enumerations are one of the simplest narrowing types.
 
 ```ts
@@ -343,7 +343,7 @@ const type = TVehical.Lorry
 const typeName = TVehical[type] // Lorry
 ```
 
-### <span class="title-3 sz-300">Constant Enumerations</span>
+### <span class="title-3 st-300">Constant Enumerations</span>
 A constant enumeration can be created using the key word 
 <span class="text italic">const</span>,
 Unlike normal enumeration, a constant enumeration is erased 
@@ -361,9 +361,9 @@ const enum TVehicle {
 const type = TVehical.Lorry
 ```
 
-### <span class="title-3 sz-300">String Literal Types</span>
+### <span class="title-3 st-300">String Literal Types</span>
 
-### <span class="title-3 sz-300">Watch for changes</spanspan>
+### <span class="title-3 st-300">Watch for changes</spanspan>
 add following in <span class="text">package.json</span> file
 ```json
 "build": "tsc --watch"
