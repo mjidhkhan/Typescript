@@ -1,5 +1,5 @@
 
-<link href="style.css" rel="stylesheet"></link> 
+<link href="./style.css" rel="stylesheet"></link> 
 
 # <span class="title-1 sz-400">Learning TypeScript</span>
 
@@ -361,7 +361,7 @@ const enum TVehicle {
 const type = TVehical.Lorry
 ```
 
-### <span class="title-3 sz-300">Union Types</span>
+### <span class="title-3 sz-300">String Literal Types</span>
 
 ### <span class="title-3 sz-300">Watch for changes</spanspan>
 add following in <span class="text">package.json</span> file
