@@ -238,11 +238,26 @@ you can use the union type string | <span class="text">null</span> | <span class
 
 we encourage the use of <span class="text">--strictNullChecks</span> when possible, but for the purposes of this handbook, we will assume it is turned off.
 
+If a type is too complex you can create abd <span class="text  italic"> Inferface</span> or <span class="text  italic"> type alias</span> to simplify annotation.
+```ts
+// Interface
+interface IPerson {
+	name: string,
+	age: number
+}
+
+const sherlock: IPerson = { name: 'John', age: 25}
+
+// Type alias
+type TPerson = {
+	name: string
+	age: number
+}
+const john: TPerson = {name: 'Martin', age: 30}
+```
 ```js
 // Never
-
 // Represents type of value that never occured.
-
 // Function returning neve must have unreachable end point
 function error(message: string): never {
 	throw new Error(message)
