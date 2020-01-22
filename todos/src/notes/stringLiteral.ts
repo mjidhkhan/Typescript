@@ -44,7 +44,7 @@ function buyPet(pet: Species, name: string ): Pet {
 			sleep: function(){
 				console.log(` ${this.name} sleeps`)
 			}
-		} as Cat  // type cat
+		} as Cat  // type Cat
 	}else if(pet === "dog"){  
 		return {
 			species: "dog",
@@ -58,7 +58,7 @@ function buyPet(pet: Species, name: string ): Pet {
 			sleep: function(){
 				console.log(` ${this.name} sleeps`)
 			}
-		} as Dog
+		} as Dog // type Dog
 
 	}else if(pet === "bird"){
 		return {
@@ -76,7 +76,7 @@ function buyPet(pet: Species, name: string ): Pet {
 			sings: function(){
 				console.log(` ${this.name} sings`)
 			}
-		} as Bird
+		} as Bird // type Bird
 	}else{
 		throw ` Sorry we do not have a ${pet}. Would you like to buy a dog.`
 	}

@@ -109,259 +109,6 @@ Now you ready to write Typescript.
 will overriden when ever you run tsc command always modify ts files</span>
 
 
-### <span class="title-3 sz-300">Type Annotations</spanspan>
-
-|<span class="all">Type</span>  | <span class="all">Variable</span>|      |      |   |       |    <span class="all">Description </span>                     |
-|-------|------------|---|------|---|-------|-------------------------------------|
-| const | identifier | = | value|   |       | 	// infered						  |
-| const | identifier | : | type |	|		|    // explicite					  |
-| const | identifier | : | type | = | value | 	// explicite with default value	  |
-
-
-<div class="out-box">
- <span class="box"> const</span> 
- <span class="box gray">identifier</span> 
- <span class="box">=</span> 
- <span class="box gray">value</span>
- </div>
- <div class="out-box">
- <span class="box"> const</span> 
- <span class="box gray">identifier</span> 
- <span class="box">:</span> 
- <span class="box gray">type</span>
- </div>
- <div class="out-box">
- <span class="box"> const</span> 
- <span class="box gray">identifier</span> 
- <span class="box">:</span> 
- <span class="box gray">type</span>
- <span class="box">=</span>
- <span class="box gray">value</span>
- </div>
-
-``` js
-// File: src/types/basics.ts
-//Boolean
-let isDone: 	boolean = false;
-let isLogin: 	boolean;
-
-// Number
-let decimal: number = 6
-let hex: number = 0xf00d
-let binary: number = 0b1010
-let octal: number = 0o744
-
-//String
-let color: string = "blue"
-color = 'red'
-
-//Array
-let list1: number[] = [1,2,3]
-// Generic array
-let list2:Array<number> = [1,2,3]
-
-//Tuple
-let x: [string, number]
-x = ['hello', 10] // ok
-//x = [10, 'hello'] // error
-
-//Enum
-enum Color {Red, Green, Blue}
-let myColor: Color = Color.Green
-
-
-enum Color2 {Red=1, Green=2, Blue=3}
-let c: Color = Color.Green
-
-enum Color3 {Red=1, Green, Blue}
-let ColorName: String = Color[2]
-
-//Any
-let notSure: any = 4
-notSure = "maybe a string"
-notSure = false
-
-let list: any[] = [1, true, "false"]
-list [1] = 100
-
-// void
-function warnUser(): void { console.log("warned")}
-let unusable:void = undefined
-//unusable = null; // ok  if`--StrictNullChecks` is not given
-
-// Null or Undefined
-let u: undefined = undefined
-let n: null  = null
-
-// primitive Type annotations
-const strName: string = 'John'
-const heightInCentimeters: number = 18.88
-const isActive: boolean = true
-
-// array type annotation
-const arrName: string[] = ['John','Nick', 'Rebecca', 'Lily']
-
-// function type annotation with parameter type annotation
-// and return type annotation.
-let sayHello: (name: string) => string
-
-// implementation of sayHello function
-sayHello = function(name){
-	return 'Hello'+ name
-}
-
-// Object type annotation
-let person: {name: string, age: number}
-// Implementation of a person object
-person = {
-	name: 'Mark',
-	age: 25
-}
-```
-By default <span class="text">null</span> and <span class="text">undefined</span> 
-are subtypes of all other types. That means you can assign <span class="text">null</span> 
-and <span class="text">undefined</span> to something like number.
-
-However, when using the <span class="text">--strictNullChecks</span> flag, 
-<span class="text">null</span> and <span class="text">undefined</span> 
-are only assignable to any and their respective types (the one exception being 
-that undefined is also assignable to void). This helps avoid many common errors. 
-In cases where you want to pass in either a string or <span class="text">null</span> 
-or <span class="text">undefined</span>, 
-
-you can use the union type string | <span class="text">null</span> | <span class="text">undefined</span>.
-
-we encourage the use of <span class="text">--strictNullChecks</span> when possible, 
-but for the purposes of this handbook, we will assume it is turned off.
-
-If a type is too complex you can create abd <span class="text  italic"> Inferface</span> 
-or <span class="text  italic"> type alias</span> to simplify annotation.
-```ts
-// File: src/types/person.ts
-// Interface
-interface IPerson {
-	name: string,
-	age: number
-}
-
-const sherlock: IPerson = { name: 'John', age: 25}
-
-// Type alias
-type TPerson = {
-	name: string
-	age: number
-}
-const john: TPerson = {name: 'Martin', age: 30}
-```
-```js
-// Never
-// Represents type of value that never occured.
-// Function returning neve must have unreachable end point
-function error(message: string): never {
-	throw new Error(message)
-}
-function infiniteLoop(): never {
-	while(true){
-
-	}
-}
-
-// Infered return type is never
-function faile(){
-	return error('somthing failed')
-}
-
-// Object
-// type that represent non-primitive type
-declare function create(0: object | null ): void
-create({prop: 0}) //ok
-create(null) //ok
-create(42) //error
-create('String') // error
-create(false) // Error
-create(undefined) // Error
-```
-
-### <span class="title-3 sz-300">Type assertions </span>
-Sometimes you’ll end up in a situation where you’ll know more about a 
-value than TypeScript does. Usually this will happen when you know the 
-type of some entity could be more specific than its current type.
-
-Type assertions are a way to tell the compiler <span class="text"> trust me, 
-I know what I’m doing.</span> A type assertion is like a type cast in other languages, 
-but performs no special checking or restructuring of data. It has no runtime impact, 
-and is used purely by the compiler. TypeScript assumes that you, the programmer, 
-have performed any special checks that you need.
-
-Type assertions have two forms. One is the <span class="text">angle-bracket<span class="text"> syntax:
-```js
-let someValue: any = "this is string"
-let strLength: number = (<string>someValue).length
-```
-And the other is the <span class="text">as<span class="text"> -syntax
-```js
-let someValur = " another string"
-let strLength: number (someValue as string).length
-```
-The two samples are equivalent. Using one over the other is mostly a choice of preference; 
-however, when using TypeScript with <span class="text">JSX<span class="text">, 
-only <span class="text">as-style<span class="text"> assertions are allowed
-
-### <span class="title-3 sz-300">Variable declaration</span>
-
-simplest form of creating vasriable in javascript is using word <span class="text">var<span class="text">
-```js
-var a = 10
-var b = 13
-var c = a + b
-```
- 
-<span class="text">let</span> and <span class="text"> const </span> are two relatively 
-new types of variable declarations in JavaScript.
-
-<span style="color:##d3077d">let</span> is similar
-
-### <span class="title-3 sz-300">Object & Dynamic Types</span>
-Everything that is not primitive type in <span class="text italic">TypeScript</span> 
-is a <span class="text italic"> subclass </span> of the <span class="text italic"> object  </span>type.
-Dynamic types can be represent any type. When using dynamic types there is not 
-compiler type checking for the type.
-
-### <span class="title-3 sz-300">Enumerations</span>
-Enumerations are one of the simplest narrowing types.
-
-```ts
-enum TVehicle {
-	PedalCycle,
-	MotorCycle,
-	Car,
-	Van,
-	Bus,
-	Lorry
-}
-const type = TVehical.Lorry
-const typeName = TVehical[type] // Lorry
-```
-
-### <span class="title-3 sz-300">Constant Enumerations</span>
-A constant enumeration can be created using the key word 
-<span class="text italic">const</span>,
-Unlike normal enumeration, a constant enumeration is erased 
-during compilation and all code reffering to
-is replaced with <span class="text italic">hard-coded</span> values.
-```ts
-const enum TVehicle {
-	PedalCycle,
-	MotorCycle,
-	Car,
-	Van,
-	Bus,
-	Lorry
-}
-const type = TVehical.Lorry
-```
-
-### <span class="title-3 sz-300">String Literal Types</span>
 
 ### <span class="title-3 sz-300">Watch for changes</spanspan>
 add following in <span class="text">package.json</span> file
@@ -372,3 +119,181 @@ then run following command
 ```shell
 $ npm run build
 ```
+
+### <span class="title-3 sz-300">Running TypeScript using ts-node</span>
+<span class="text italic">ts-node</span> is an npm package which allows the user to run typescript files directly, without the needs for precompilation using tsc. It also provide [REPL](http://en.wikipedia.org/wiki/Read-eval-print_loop)
+
+Install <span class="text italic">ts-node</span> <span class="text italic">globally</span> using
+```shell 
+$ npm install -g ts-node
+```
+<span class="text italic">ts-node</span> does not bundle <span class="text italic">TypeScript</span> compiler, so you might need to install it.
+```shell
+$ install -g typescript
+```
+
+#### <span class="title-4 sz-300">Execute script</span>
+```shell
+$ ts-node main.ts
+```
+
+#### <span class="title-4 sz-400">Running REPL</span>
+```shell
+$ ts-node
+```
+It will open REPL to execute 
+
+### <span class="title-3 sz-500">TypeScript REPL in Node.js</span>
+For use Typescript <span class="text">REPL</span> in <span class="text">Node.js</span> [tsun package](https://www.npmjs.com/package/tsun) can be used.
+```shell
+$ npm install -g tsun
+
+// use tsun
+$ tsun
+
+```
+
+### <span class="title-3 sz-500">TypeScript Core Types</span>
+
+
+
+#### <span class="title-3 sz-500"> 	1-	String Literal Types</span>
+String Literal types allow you to specify the exact value a string can have.
+```ts
+
+// Togather with type Aliases and union Types you get a enum like  behaviour.
+
+type Species = "cat" | "dog" | "bird"
+
+
+// String Literal Types can be used to distinguish overloads.
+
+interface Pet {
+	species: Species
+	name:string
+	eat(): any
+	walk() : any
+	sleep(): any
+}
+interface Cat  extends Pet{
+	species: "cat"
+}
+interface Dog  extends Pet{
+	species: "dog"
+}
+interface Bird  extends Pet {
+	species: "bird"
+	sings(): any
+}
+
+function buyPet(pet: Species, name: string ): Pet
+function buyPet(pet: "cat", name: string ): Cat
+function buyPet(pet: "dog", name: string ): Dog
+function buyPet(pet: "bird", name: string ): Bird
+
+function buyPet(pet: Species, name: string ): Pet {
+	console.log('----------------------')
+	if(pet === "cat"){
+		return {
+			species: "cat",
+			name: name,
+			eat:function(){
+				console.log(` ${this.name} eats`)
+			},
+			walk: function (){
+				console.log(` ${this.name} walks`)
+			},
+			sleep: function(){
+				console.log(` ${this.name} sleeps`)
+			}
+		} as Cat  // type Cat
+	}else if(pet === "dog"){  
+		return {
+			species: "dog",
+			name: name,
+			eat: function () {
+				console.log(` ${this.name} eats`)
+			},
+			walk: function (){
+				console.log(` ${this.name} walks`)
+			},
+			sleep: function(){
+				console.log(` ${this.name} sleeps`)
+			}
+		} as Dog // type Dog
+
+	}else if(pet === "bird"){
+		return {
+			species: "bird",
+			name: name,
+			eat: function(){
+				console.log(` ${this.name} eats`)
+			},
+			walk: function (){
+				console.log(` ${this.name} walks`)
+			},
+			sleep: function(){
+				console.log(` ${this.name} sleeps`)
+			},
+			sings: function(){
+				console.log(` ${this.name} sings`)
+			}
+		} as Bird // type Bird
+	}else{
+		throw ` Sorry we do not have a ${pet}. Would you like to buy a dog.`
+	}
+} // function end
+
+
+function petIsCat(pet: Pet): pet is Cat
+{
+	return pet.species === "cat"
+}
+
+function petIsDog(pet: Pet): pet is Dog
+{
+	return pet.species === "dog"
+}
+
+function petIsBird(pet: Pet): pet is Bird
+{
+	return pet.species === "bird"
+}
+
+function palyWithPet(pet: Pet) {
+	console.log(`Hey ${pet.name}, lets play.`)
+
+	if(petIsCat(pet) || petIsDog(pet) || petIsBird(pet))
+	{
+		pet.eat()
+		pet.walk()
+		pet.sleep()
+		if(petIsBird(pet)){
+			pet.sings()
+		}
+	}
+	
+}
+
+
+/// Usage 
+
+// Dog
+
+let dog = buyPet('dog' , "Rocky")
+palyWithPet(dog);
+
+// Bird
+
+let bPet = buyPet('bird', 'quail')
+palyWithPet(bPet)
+
+// Cat
+
+let cPet = buyPet('cat', 'Kitty')
+palyWithPet(cPet)
+
+
+```
+
+
