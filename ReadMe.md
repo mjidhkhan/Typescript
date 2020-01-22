@@ -1,32 +1,7 @@
 <style>
-body{ color: #474647;}
-.text {color:#d3077d; }
-.all {color:#d3077d; }
-.box { display:in-line; width:auto; height:20px;
-	background:#eee; border: 1px solid #b0aeb0;padding:15px;
-	color: #d3077d; }
-.out-box { display:block; width:auto; height:auto;
-			border: 1px solid #eee; margin:2px;
-			padding-left:20px; padding-top:20px; padding-bottom:20px;}
 
-.gray {color:#474647; font-weight: 300;font-style: italic; }
-
-.italic {font-style: italic;}
-.title-1{color:#83044d}
-.title-2{color:#a21767}
-.title-3{color:#ae05a4}
-.title-4{color: #d51fbc}
-.title-5{color:#8d0654}
-.sz-200 {font-weight: 200; font-family: 'Nunito Sans', sans-serif;}
-.sz-300 {font-weight: 300; font-family: 'Nunito Sans', sans-serif;}
-.sz-400 {font-weight: 400; font-family: 'Nunito Sans', sans-serif;}
-.sz-500 {font-weight: 500; font-family: 'Nunito Sans', sans-serif;}
-.sz-600 {font-weight: 600; font-family: 'Nunito Sans', sans-serif;}
-.sz-700 {font-weight: 700; font-family: 'Nunito Sans', sans-serif;}
-.sz-800 {font-weight: 800; font-family: 'Nunito Sans', sans-serif;}
-.sz-900 {font-weight: 900; font-family: 'Nunito Sans', sans-serif;}
 </style>
-
+<link href="style.css" rel="stylesheet"></link> 
 # <span class="title-1 sz-400">Learning TypeScript</span>
 
 ## <span class="title-2 sz-300">Get your enviornment ready</span>
