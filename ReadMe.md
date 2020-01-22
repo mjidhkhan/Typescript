@@ -81,7 +81,7 @@ now we need to create <span class="text">tsconfig.json</span> file to do so runn
 ```shell
 $ tsc --init
 ```
-creat <span class="text">src<span class="text"> directory
+creat <span class="text">src</span> directory
 change following to match this
 ```json
 // "outDir": "./",
