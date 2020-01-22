@@ -105,7 +105,7 @@ change following to match this
 // "outDir": "./",
 // "rootDir": "./",
  "outDir": "./dist",
- "rootDir": "./src", 
+ "rootDir": "./src/*.ts", 
 ```
 create <span class="text">index.ts</span> file in <span class="text">src</span> directory
 ```js
@@ -204,6 +204,31 @@ unusable = null; // ok  if`--StrictNullChecks` is not given
 // Null or Undefined
 let u: undefined = undefined
 let n: null  = null
+
+// primitive Type annotations
+const name: string = 'John'
+const heightInCentimeters: number = 18.88
+const isActive: boolean = true
+
+// array type annotation
+const name: string[] = ['John','Nick', 'Rebecca', 'Lily']
+
+// function type annotation with parameter type annotation
+// and return type annotation.
+let sayHello: (name: string) => string
+
+// implementation of sayHello function
+satHello = function(name){
+	return 'Hello'+ name
+}
+
+// Object type annotation
+let person: {name: string, age: number}
+// Implementation of a person object
+person = {
+	name: 'Mark',
+	age: 25
+}
 ```
 By default <span class="text">null</span> and <span class="text">undefined</span> are subtypes of all other types. That means you can assign <span class="text">null</span> and <span class="text">undefined</span> to something like number.
 
