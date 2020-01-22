@@ -1,5 +1,5 @@
 
-<link href="style.css" rel="stylesheet"></link> 
+<link href="../style.css" rel="stylesheet"></link> 
 
 # <span class="title-1 b-300">Todos Project</span>
 we will create a todo item list which will show logs in console.
