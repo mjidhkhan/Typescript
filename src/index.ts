@@ -1,5 +1,5 @@
-import {TodoItem} from './TodoItem'
-import {TodoCollection} from './TodoCollection'
+import {TodoItem} from './todos/TodoItem'
+import {TodoCollection} from './todos/TodoCollection'
 
 
 let todos= [
@@ -9,22 +9,14 @@ let todos= [
 	new TodoItem(7, "Buy Mangoes", true),new TodoItem(8, "Buy Chicken", false),
 ]
 
-//console.clear()
+console.clear()
 let collection = new TodoCollection("Adam", todos)
-let newId = collection.addTodo("Buy Lamb meet")
-//let todoitem = collection.getTodoById(newId)
+console.log(`${collection.userName}'s Todo List `
+			+ ` (${collection.getItemCounts().incomplete} items to do)`
+			+ `\n---------------------------------`
+			)
+
+// print todo's
 collection.getTodoItems(true)
 	.forEach(item => item.printDetaile());
-//console.log(JSON.stringify(collection)) 
-//console.log( `${collection.userName}'s Todo List`)
 
-
-//console.log(JSON.stringify(todoitem)) 
-
-//todoitem.printDetaile()
-
-
-
-	//var todo = new TodoItem(1, 'Learn Typescript ', false)
-	//todo.printDetaile()
-	

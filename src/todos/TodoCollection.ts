@@ -1,5 +1,9 @@
 import {TodoItem} from './TodoItem'
-
+type ItemCounts = {
+	total: number,
+	incomplete: number
+	
+}
 export class TodoCollection {
 	private nextId: number = 1;
 	private itemMap = new Map<number, TodoItem>()
@@ -17,21 +21,36 @@ export class TodoCollection {
 		//this.todoItems.push(new TodoItem(this.nextId, task))
 	}
 
-	getTodoById(id: number): TodoItem {
-		//console.log(this.itemMap)
+	getTodoById(id: number):any{
 		return this.itemMap.get(id)
 		//return (this.todoItems as any).find((item: { id: number; }) => item.id === id)
 	}
  
-
 	getTodoItems(includeComplete: boolean): TodoItem[]{
 		return [...this.itemMap.values()]
-			.filter(item => includeComplete || item.complete)
+			.filter(item => includeComplete || !item.complete)
+			
 	}
 	markCompleted(id: number, complete: boolean) {
 		const todoItem = this.getTodoById(id)
 		if(todoItem){
 			todoItem.complete = complete
+		}
+	}
+
+	removeComplete(){
+		this.itemMap.forEach(item => {
+			if(item.complete){
+				this.itemMap.delete(item.id)
+			}
+		})
+	}
+
+	getItemCounts():ItemCounts{
+		return {
+			total: this.itemMap.size,
+			incomplete: this.getTodoItems(false).length,
+			
 		}
 	}
 }
