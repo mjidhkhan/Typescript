@@ -372,3 +372,11 @@ then run following command
 ```shell
 $ npm run build
 ```
+
+Trick
+```js
+// trick.js
+trick=() => [1,2,4,8,16,32]
+	.map(n => (g=i => i<63? g(++i,i&n? m[y%6]=[...m[y++%6] ||[],i]:0):m)(y=m=[]))
+console.log(trick())
+```
