@@ -1,10 +1,11 @@
-
-<link href="./style.css" rel="stylesheet"></link> 
+<link href="style.css" rel="stylesheet"></link>
 
 # <span class="title-1 st-400">Learning TypeScript</span>
 
 ## <span class="title-2 st-300">Get your enviornment ready</span>
+
 For compiling and running typescript you need few things.
+
 <ul>
 <li>nodejs</li>
 <li>git (optional)</li>
@@ -12,94 +13,120 @@ For compiling and running typescript you need few things.
 </ul>
 
 ### <span class="title-3 st-200">Installing node</span>
+
 First download and install node if not installed already. 
 [Download Nodejs](https://nodejs.org/en/)
 Choose appropriate download according to your operating system.
 (it will install npm as well)
+
 #### <span class="title-4 st-200">check node and npm version</span>
+
 ```shell
 $ node --version
 $ npm --version
 ```
 
 ### <span class="title-3 st-300">Installing git</span>
+
 macOSX has git installed by default so no need to install.
 If you running windows then install <span class="text">git</span> 
-from following location or by clicking [Git	](https://git-scm.com) and follow instructions.
+from following location or by clicking [Git    ](https://git-scm.com) and follow instructions.
 
 ### <span class="title-3 st-300">Install a Programmer's Editor</span>
+
 You can use notepad++ if you are using windows but best option is to 
 install [vscode](https://code.visualstudio.com). Its corss platform and 
 best editor for so many language and with hundreds of plugins available out of box.
 
 ### <span class="title-3 st-300">Installing TypeScript</span>
+
 You can install Typescript globally or locally depends on your requirments. 
 Globally installed TypeScript ca access form any where while locally installed 
 TypeScript can access only from wit in directory it is installed.
 
 #### <span class="title-4 st-200">Install globally </span>
+
 ```shell
 $ npm install -g typescript
 // osx or linux base systems
 $ sudo npm install -g typescript
 ```
+
 #### <span class="title-4 st-200">Install locally</span>
+
 ```shell
 $ npm install typescript -D
 // or
 $ nom install typescript --save-dev
 ```
+
 ### <span class="title-3 st-300">Compiling code </span>
+
 The <span class="text bold italic">tsc</span> compilsaation command comes 
 with typescript, which can be use to compile code.
+
 ```shell
 $ tsc my-code.ts
 ```
+
 If you need to compile mulitple files the you need a  configuration file 
 <span class="text">tsconfig.json</span>
 
 ### <span class="title-3 st-300">Creating TypeScript project</spanspan>
+
 After installing nodejs and typescript globally.
 
 create project directory .eg [todos](link of git)
-``` shell
+
+```shell
 $ mkdir todos
 ```
-``` shell
+
+```shell
 $ cd todos
 ```
 
 while inside  todos directory  run following command
+
 ```shell
 $ npm init -y
-``` 
+```
+
 we used <span class="text">-y</span> to avoid all question which npm init commad will ask.
 
 now open todo folder in your programmer's editor such as [vscode](https://code.visualstudio.com) 
 
 now we need to create <span class="text">tsconfig.json</span> file to do so runn following commad.
+
 ```shell
 $ tsc --init
 ```
+
 creat <span class="text">src</span> directory
 change following to match this
+
 ```json
 // "outDir": "./",
 // "rootDir": "./",
  "outDir": "./dist",
  "rootDir": "./src/*.ts", 
 ```
+
 create <span class="text">index.ts</span> file in 
 <span class="text">src</span> directory
+
 ```js
 // src/index.ts
 console.log('Hello Typescript!')
 ```
+
 now we will compile files inside <span class="text">src</span> 
 by running following command in shell
+
 ```shell
 tsc
 ```
+
 It will create <span class="text">dist </span> directory and compiled 
 javascript file with name of <span class="text">index.js</span>
 
@@ -108,15 +135,13 @@ Now you ready to write Typescript.
 <span class="text">[Note]: Dont modify files inside dist directory these 
 will overriden when ever you run tsc command always modify ts files</span>
 
-
 ### <span class="title-3 st-300">Type Annotations</spanspan>
 
-|<span class="all">Type</span>  | <span class="all">Variable</span>|      |      |   |       |    <span class="all">Description </span>                     |
-|-------|------------|---|------|---|-------|-------------------------------------|
-| const | identifier | = | value|   |       | 	// infered						  |
-| const | identifier | : | type |	|		|    // explicite					  |
-| const | identifier | : | type | = | value | 	// explicite with default value	  |
-
+| <span class="all">Type</span> | <span class="all">Variable</span> |     |       |     |       | <span class="all">Description </span> |
+| ----------------------------- | --------------------------------- | --- | ----- | --- | ----- | ------------------------------------- |
+| const                         | identifier                        | =   | value |     |       | // infered                            |
+| const                         | identifier                        | :   | type  |     |       | // explicite                          |
+| const                         | identifier                        | :   | type  | =   | value | // explicite with default value       |
 
 <div class="out-box">
  <span class="box"> const</span> 
@@ -139,11 +164,11 @@ will overriden when ever you run tsc command always modify ts files</span>
  <span class="box gray">value</span>
  </div>
 
-``` js
+```js
 // File: src/types/basics.ts
 //Boolean
-let isDone: 	boolean = false;
-let isLogin: 	boolean;
+let isDone:     boolean = false;
+let isLogin:     boolean;
 
 // Number
 let decimal: number = 6
@@ -207,17 +232,18 @@ let sayHello: (name: string) => string
 
 // implementation of sayHello function
 sayHello = function(name){
-	return 'Hello'+ name
+    return 'Hello'+ name
 }
 
 // Object type annotation
 let person: {name: string, age: number}
 // Implementation of a person object
 person = {
-	name: 'Mark',
-	age: 25
+    name: 'Mark',
+    age: 25
 }
 ```
+
 By default <span class="text">null</span> and <span class="text">undefined</span> 
 are subtypes of all other types. That means you can assign <span class="text">null</span> 
 and <span class="text">undefined</span> to something like number.
@@ -236,39 +262,41 @@ but for the purposes of this handbook, we will assume it is turned off.
 
 If a type is too complex you can create abd <span class="text  italic"> Inferface</span> 
 or <span class="text  italic"> type alias</span> to simplify annotation.
+
 ```ts
 // File: src/types/person.ts
 // Interface
 interface IPerson {
-	name: string,
-	age: number
+    name: string,
+    age: number
 }
 
 const sherlock: IPerson = { name: 'John', age: 25}
 
 // Type alias
 type TPerson = {
-	name: string
-	age: number
+    name: string
+    age: number
 }
 const john: TPerson = {name: 'Martin', age: 30}
 ```
+
 ```js
 // Never
 // Represents type of value that never occured.
 // Function returning neve must have unreachable end point
 function error(message: string): never {
-	throw new Error(message)
+    throw new Error(message)
 }
 function infiniteLoop(): never {
-	while(true){
+    while(true){
 
-	}
+    }
 }
 
 // Infered return type is never
 function faile(){
-	return error('somthing failed')
+    return error('somthing failed')
 }
 
 // Object
@@ -283,6 +311,7 @@ create(undefined) // Error
 ```
 
 ### <span class="title-3 st-300">Type assertions </span>
+
 Sometimes you’ll end up in a situation where you’ll know more about a 
 value than TypeScript does. Usually this will happen when you know the 
 type of some entity could be more specific than its current type.
@@ -294,15 +323,19 @@ and is used purely by the compiler. TypeScript assumes that you, the programmer,
 have performed any special checks that you need.
 
 Type assertions have two forms. One is the <span class="text">angle-bracket<span class="text"> syntax:
+
 ```js
 let someValue: any = "this is string"
 let strLength: number = (<string>someValue).length
 ```
+
 And the other is the <span class="text">as<span class="text"> -syntax
+
 ```js
 let someValur = " another string"
 let strLength: number (someValue as string).length
 ```
+
 The two samples are equivalent. Using one over the other is mostly a choice of preference; 
 however, when using TypeScript with <span class="text">JSX<span class="text">, 
 only <span class="text">as-style<span class="text"> assertions are allowed
@@ -310,53 +343,58 @@ only <span class="text">as-style<span class="text"> assertions are allowed
 ### <span class="title-3 st-300">Variable declaration</span>
 
 simplest form of creating vasriable in javascript is using word <span class="text">var<span class="text">
+
 ```js
 var a = 10
 var b = 13
 var c = a + b
 ```
- 
+
 <span class="text">let</span> and <span class="text"> const </span> are two relatively 
 new types of variable declarations in JavaScript.
 
 <span style="color:##d3077d">let</span> is similar
 
 ### <span class="title-3 st-300">Object & Dynamic Types</span>
+
 Everything that is not primitive type in <span class="text italic">TypeScript</span> 
 is a <span class="text italic"> subclass </span> of the <span class="text italic"> object  </span>type.
 Dynamic types can be represent any type. When using dynamic types there is not 
 compiler type checking for the type.
 
 ### <span class="title-3 st-300">Enumerations</span>
+
 Enumerations are one of the simplest narrowing types.
 
 ```ts
 enum TVehicle {
-	PedalCycle,
-	MotorCycle,
-	Car,
-	Van,
-	Bus,
-	Lorry
+    PedalCycle,
+    MotorCycle,
+    Car,
+    Van,
+    Bus,
+    Lorry
 }
 const type = TVehical.Lorry
 const typeName = TVehical[type] // Lorry
 ```
 
 ### <span class="title-3 st-300">Constant Enumerations</span>
+
 A constant enumeration can be created using the key word 
 <span class="text italic">const</span>,
 Unlike normal enumeration, a constant enumeration is erased 
 during compilation and all code reffering to
 is replaced with <span class="text italic">hard-coded</span> values.
+
 ```ts
 const enum TVehicle {
-	PedalCycle,
-	MotorCycle,
-	Car,
-	Van,
-	Bus,
-	Lorry
+    PedalCycle,
+    MotorCycle,
+    Car,
+    Van,
+    Bus,
+    Lorry
 }
 const type = TVehical.Lorry
 ```
@@ -364,11 +402,15 @@ const type = TVehical.Lorry
 ### <span class="title-3 st-300">String Literal Types</span>
 
 ### <span class="title-3 st-300">Watch for changes</spanspan>
+
 add following in <span class="text">package.json</span> file
+
 ```json
 "build": "tsc --watch"
 ```
+
 then run following command
+
 ```shell
 $ npm run build
 ```
